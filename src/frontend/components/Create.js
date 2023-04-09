@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { ethers } from "ethers"
 import { Row, Form, Button } from 'react-bootstrap'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
-const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
-
+// const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
+// const client = ipfsHttpClient('https://ipfs.infura.io/v3/2O5sAYJV96m7o9Vtu4LbiaJz7k6')
+const client = ipfsHttpClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https', headers: { 'Authorization': 'Basic ' +btoa('2O5sAYJV96m7o9Vtu4LbiaJz7k6:a1862666bd199603fc2cdf6d00a9098f') } });
+// https://eth-sepolia.g.alchemy.com/v2/IKSL5xfzbylYEsBGFU5UiS6zS3LxYDkF
+// const client = ipfsHttpClient('https://eth-sepolia.g.alchemy.com/v2/IKSL5xfzbylYEsBGFU5UiS6zS3LxYDkF')
 const Create = ({ marketplace, nft }) => {
   const [image, setImage] = useState('')
   const [price, setPrice] = useState(null)
